@@ -123,15 +123,19 @@ Cada tema incluye una línea visual coherente, accesible y responsive.
 
 ---
 
+---
+
 ## ⚖️ Licencia
 
-Este proyecto está bajo licencia **MIT**.
+Este proyecto está bajo la licencia [MIT](./LICENSE).
 
 Puedes:
 
 - ✅ Usarlo para fines personales y comerciales  
 - 🔄 Modificarlo y adaptarlo a tu marca  
-- ✨ Compartirlo con atribución
+- ✨ Compartirlo libremente con atribución  
+
+© 2025 Jorge Enrique Cáceres Hernández
 
 
 
