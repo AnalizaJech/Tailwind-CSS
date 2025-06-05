@@ -1,0 +1,115 @@
+<section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1e1f36] via-[#2b2e5e] to-[#312464] px-4 py-12 relative overflow-hidden">
+  <!-- Aurora blobs -->
+  <div class="absolute -top-32 -left-32 w-96 h-96 bg-purple-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-0 right-0 w-80 h-80 bg-pink-500 opacity-20 rounded-full blur-2xl animate-ping delay-2000"></div>
+
+  <!-- Login card -->
+  <div class="relative z-10 max-w-md w-full bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl p-8 sm:p-10 text-white space-y-6 animate-fade-in">
+    
+    <!-- Branding -->
+    <div class="text-center">
+      <h1 class="text-3xl font-bold">Iniciar sesión</h1>
+      <p class="text-sm text-white/70 mt-1">Bienvenido de nuevo a <span class="text-indigo-300 font-semibold">TiendaPro</span></p>
+    </div>
+
+    <!-- Formulario -->
+    <form class="space-y-5" autocomplete="on">
+      
+      <!-- Email -->
+      <div class="relative">
+        <label for="email" class="block text-sm mb-1 text-white/80">Correo electrónico</label>
+        <span class="absolute left-3 top-[38px]">
+          <!-- ICONO MAIL -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="text-white/60">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+            <path d="M3 7l9 6l9 -6" />
+          </svg>
+        </span>
+        <input type="email" id="email" placeholder="correo@ejemplo.com" autocomplete="email" required
+          class="w-full pl-10 pr-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition" />
+      </div>
+
+      <!-- Contraseña -->
+      <div class="relative">
+        <label for="password" class="block text-sm mb-1 text-white/80">Contraseña</label>
+        <span class="absolute left-3 top-[38px]">
+          <!-- ICONO LOCK -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="text-white/60">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" />
+            <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+            <path d="M8 11v-4a4 4 0 1 1 8 0v4" />
+          </svg>
+        </span>
+        <input type="password" id="password" placeholder="••••••••" autocomplete="current-password" required
+          class="w-full pl-10 pr-10 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition" />
+        <!-- Mostrar/Ocultar contraseña -->
+        <button type="button" onclick="togglePassword()" class="absolute right-3 top-[38px] text-white/60 hover:text-white transition" id="toggleIcon">
+          <!-- ÍCONO OJO POR DEFECTO -->
+          <svg id="eyeOn" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-eye">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+            <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Botón CTA -->
+      <button type="submit"
+        class="w-full py-3 font-semibold rounded-lg bg-gradient-to-r from-indigo-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 shadow-md hover:shadow-xl transition-all duration-300">
+        Iniciar Sesión
+      </button>
+    </form>
+
+    <!-- Beneficio UX -->
+    <p class="text-xs text-center text-white/50 mt-2">Al iniciar sesión puedes revisar tus pedidos, guardar productos y recibir ofertas personalizadas.</p>
+
+    <!-- Registro -->
+    <p class="text-sm text-center text-white/70 mt-4">
+      ¿No tienes cuenta?
+      <a href="#" class="text-indigo-300 font-medium hover:underline">Crear una</a>
+    </p>
+  </div>
+
+  <!-- Animación fade-in -->
+  <style>
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 0.7s ease-out forwards;
+    }
+  </style>
+
+  <!-- JS toggle password -->
+  <script>
+    function togglePassword() {
+      const input = document.getElementById('password');
+      const icon = document.getElementById('toggleIcon');
+      const eyeOn = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-eye">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+        <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+        </svg>`;
+      const eyeOff = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-eye-off">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M10.585 10.587a2 2 0 0 0 2.829 2.828" />
+        <path d="M16.681 16.673a8.717 8.717 0 0 1 -4.681 1.327c-3.6 0 -6.6 -2 -9 -6c1.272 -2.12 2.712 -3.678 4.32 -4.674m2.86 -1.146a9.055 9.055 0 0 1 1.82 -.18c3.6 0 6.6 2 9 6c-.666 1.11 -1.379 2.067 -2.138 2.87" />
+        <path d="M3 3l18 18" />
+        </svg>`;
+      input.type = input.type === 'password' ? 'text' : 'password';
+      icon.innerHTML = input.type === 'password' ? eyeOn : eyeOff;
+    }
+  </script>
+</section>
